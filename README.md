@@ -148,9 +148,9 @@ INSERT INTO "Promotions" ("RestaurantId", "Title", "Description", "Discount", "E
 
 ## วิธีการรันโปรเจกต์
 เปิดโปรเจกต์และโหลด NuGet Packages
-1. ให้เพื่อนดับเบิ้ลคลิกไฟล์ .sln ของฝั่ง Server (API) ก่อน
-2. คลิกขวาที่ชื่อ Solution (ขวาบนสุด) -> เลือก Restore NuGet Packages 3. Visual Studio จะทำการวิ่งไปโหลด Library ต่างๆ (เช่น Entity Framework, ตัวเชื่อม Postgres) กลับมาให้เองอัตโนมัติ
-3. กดปุ่ม Build (Ctrl + Shift + B) 1 ครั้ง เพื่อเช็คว่าโค้ดไม่มี Error
+1. ดับเบิ้ลคลิกไฟล์ .sln ของฝั่ง Server (API) ก่อน
+2. คลิกขวาที่ชื่อ Solution (ขวาบนสุด) -> เลือก Restore NuGet Packages Visual Studio จะทำการวิ่งไปโหลด Library ต่างๆ (เช่น Entity Framework, ตัวเชื่อม Postgres) กลับมาให้
+3. กดปุ่ม Build (Ctrl + Shift + B) 1 ครั้ง เช็คว่าโค้ดไม่มี Error
 
 รันระบบตามลำดับ
 1. รันฝั่ง FoodHubServer (API) ทิ้งไว้ก่อน (รอจน Swagger ขึ้น)
