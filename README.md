@@ -147,6 +147,12 @@ INSERT INTO "Promotions" ("RestaurantId", "Title", "Description", "Discount", "E
 ```
 
 ## วิธีการรันโปรเจกต์
-เมื่อตั้งค่าฐานข้อมูลเสร็จแล้ว ให้รันโปรเจกต์ตามลำดับต่อไปนี้:
-1. รัน Server API: เข้าไปที่โฟลเดอร์ FoodHub เปิด Solution ด้วย Visual Studio แล้วกดรัน (F5) ลองทดสอบยิง API ผ่าน Swagger UI ดูว่าดึงข้อมูลได้ปกติหรือไม่
-2. รัน Client Apps: เมื่อ Server รันอยู่ (ห้ามปิด) ให้เปิดอีกหน้าต่าง Visual Studio สำหรับโปรเจกต์ FoodHubCustomerUI หรือ FoodHubRestaurantUI แล้วกดรันเพื่อทดสอบการใช้งานจริงผ่านหน้าแอป
+เปิดโปรเจกต์และโหลด NuGet Packages
+1. ให้เพื่อนดับเบิ้ลคลิกไฟล์ .sln ของฝั่ง Server (API) ก่อน
+2. คลิกขวาที่ชื่อ Solution (ขวาบนสุด) -> เลือก Restore NuGet Packages 3. Visual Studio จะทำการวิ่งไปโหลด Library ต่างๆ (เช่น Entity Framework, ตัวเชื่อม Postgres) กลับมาให้เองอัตโนมัติ
+3. กดปุ่ม Build (Ctrl + Shift + B) 1 ครั้ง เพื่อเช็คว่าโค้ดไม่มี Error
+
+รันระบบตามลำดับ
+1. รันฝั่ง FoodHubServer (API) ทิ้งไว้ก่อน (รอจน Swagger ขึ้น)
+2. เปิด Visual Studio หน้าต่างใหม่ เพื่อรัน FoodHubCustomerUI
+3. เปิด Visual Studio หน้าต่างใหม่ เพื่อรัน FoodHubRestaurantUI
