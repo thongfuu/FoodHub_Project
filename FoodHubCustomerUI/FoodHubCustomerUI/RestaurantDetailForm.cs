@@ -23,6 +23,85 @@ namespace FoodHubCustomerUI
             InitializeComponent();
             _restaurantId = restaurantId;
             _restaurantName = restaurantName;
+            ApplyModernLayout();
+        }
+
+        private void ApplyModernLayout()
+        {
+            CustomerUiTheme.ApplyForm(this, new Size(1120, 720), "FoodHub - รายละเอียดร้าน");
+
+            lblRestaurantName.Location = new Point(32, 28);
+            lblRestaurantName.Size = new Size(650, 42);
+            lblRestaurantName.AutoSize = false;
+            lblRestaurantName.Font = CustomerUiTheme.TitleFont;
+            lblRestaurantName.ForeColor = CustomerUiTheme.Text;
+
+            lblOpenHours.Location = new Point(34, 78);
+            lblOpenHours.Size = new Size(650, 28);
+            lblOpenHours.AutoSize = false;
+            CustomerUiTheme.StyleLabel(lblOpenHours);
+
+            lblAddress.Location = new Point(34, 108);
+            lblAddress.Size = new Size(650, 48);
+            CustomerUiTheme.StyleLabel(lblAddress);
+
+            var reviewTitle = CustomerUiTheme.CreateSubtitle("รีวิวจากลูกค้า", new Point(34, 168), 320);
+            reviewTitle.Font = CustomerUiTheme.SectionFont;
+            reviewTitle.ForeColor = CustomerUiTheme.Text;
+            Controls.Add(reviewTitle);
+
+            dgvReviews.Location = new Point(32, 210);
+            dgvReviews.Size = new Size(670, 450);
+            dgvReviews.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CustomerUiTheme.StyleGrid(dgvReviews);
+
+            label4.Text = "โปรโมชัน";
+            label4.Location = new Point(730, 32);
+            label4.Size = new Size(330, 30);
+            label4.AutoSize = false;
+            CustomerUiTheme.StyleLabel(label4, section: true);
+
+            dgvPromotions.Location = new Point(730, 72);
+            dgvPromotions.Size = new Size(350, 210);
+            dgvPromotions.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CustomerUiTheme.StyleGrid(dgvPromotions);
+
+            btnClaimCoupon.Location = new Point(730, 294);
+            btnClaimCoupon.Size = new Size(350, 42);
+            btnClaimCoupon.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CustomerUiTheme.StyleSecondaryButton(btnClaimCoupon);
+
+            var bookingTitle = CustomerUiTheme.CreateSubtitle("จองโต๊ะ", new Point(730, 366), 330);
+            bookingTitle.Font = CustomerUiTheme.SectionFont;
+            bookingTitle.ForeColor = CustomerUiTheme.Text;
+            Controls.Add(bookingTitle);
+
+            label1.Location = new Point(730, 414);
+            label1.Size = new Size(350, 24);
+            label1.AutoSize = false;
+            CustomerUiTheme.StyleLabel(label1);
+
+            dtpBookingDate.Location = new Point(730, 442);
+            dtpBookingDate.Size = new Size(350, 30);
+            CustomerUiTheme.StyleInput(dtpBookingDate);
+
+            label2.Location = new Point(730, 488);
+            label2.Size = new Size(110, 28);
+            label2.AutoSize = false;
+            CustomerUiTheme.StyleLabel(label2);
+
+            numPeople.Location = new Point(850, 486);
+            numPeople.Size = new Size(230, 30);
+            CustomerUiTheme.StyleInput(numPeople);
+
+            cmbCoupons.Location = new Point(730, 532);
+            cmbCoupons.Size = new Size(350, 30);
+            CustomerUiTheme.StyleInput(cmbCoupons);
+
+            btnBook.Location = new Point(730, 590);
+            btnBook.Size = new Size(350, 46);
+            btnBook.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CustomerUiTheme.StylePrimaryButton(btnBook);
         }
 
         // --- เหตุการณ์ตอนโหลดหน้าจอครั้งแรก ---
@@ -125,8 +204,8 @@ namespace FoodHubCustomerUI
                     dgvReviews.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
                     // 4. สลับสีพื้นหลังแถวเว้นแถว ให้อ่านง่ายสบายตาขึ้น
-                    dgvReviews.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-                    dgvReviews.BackgroundColor = Color.White;
+                    dgvReviews.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 251, 248);
+                    dgvReviews.BackgroundColor = CustomerUiTheme.Surface;
 
                     // 5. ไฮไลต์สำคัญ: จัดการคอลัมน์ "ความคิดเห็น" ไม่ให้ตกขอบ
                     if (dgvReviews.Columns.Contains("ความคิดเห็น"))

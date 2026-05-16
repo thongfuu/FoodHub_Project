@@ -15,8 +15,88 @@ namespace FoodHubRestaurantUI
         public RestaurantDashboardForm()
         {
             InitializeComponent();
+            ApplyModernLayout();
             // แสดงชื่อร้านที่แถบด้านบนสุดของหน้าต่าง
-            this.Text = $"Dashboard ร้าน: {Program.LoggedInRestaurantName}";
+            this.Text = $"FoodHub Partner - {Program.LoggedInRestaurantName}";
+        }
+
+        private void ApplyModernLayout()
+        {
+            RestaurantUiTheme.ApplyForm(this, new Size(1080, 700), "FoodHub Partner - Dashboard");
+            RestaurantUiTheme.StyleMenu(menuStrip1);
+            RestaurantUiTheme.StyleTabs(tabControl1);
+
+            var title = RestaurantUiTheme.CreateTitle("จัดการคิวจอง", new Point(32, 58), 520);
+            var subtitle = RestaurantUiTheme.CreateSubtitle($"ร้าน {Program.LoggedInRestaurantName} ตรวจสอบคิวใหม่และอัปเดตสถานะได้จากหน้านี้", new Point(34, 102), 820);
+
+            btnRefresh.Location = new Point(900, 70);
+            btnRefresh.Size = new Size(140, 42);
+            btnRefresh.Text = "รีเฟรช";
+            btnRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            RestaurantUiTheme.StyleSecondaryButton(btnRefresh);
+
+            tabControl1.Location = new Point(32, 150);
+            tabControl1.Size = new Size(1008, 500);
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            tabPage1.Text = "รอการยืนยัน";
+            tabPage2.Text = "คิวที่รับแล้ว";
+            tabPage1.Resize += (_, _) => LayoutBookingTab(tabPage1, dgvPending, btnConfirm, btnReject);
+            tabPage2.Resize += (_, _) => LayoutBookingTab(tabPage2, dgvConfirmed, btnComplete, btnNoShow);
+
+            dgvPending.Location = new Point(18, 22);
+            dgvPending.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RestaurantUiTheme.StyleGrid(dgvPending);
+
+            btnConfirm.Size = new Size(200, 44);
+            btnConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            RestaurantUiTheme.StylePrimaryButton(btnConfirm);
+
+            btnReject.Size = new Size(200, 44);
+            btnReject.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            RestaurantUiTheme.StyleDangerButton(btnReject);
+            btnConfirm.BringToFront();
+            btnReject.BringToFront();
+
+            dgvConfirmed.Location = new Point(18, 22);
+            dgvConfirmed.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RestaurantUiTheme.StyleGrid(dgvConfirmed);
+
+            btnComplete.Size = new Size(200, 44);
+            btnComplete.Text = "เช็คอิน / เสร็จแล้ว";
+            btnComplete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            RestaurantUiTheme.StylePrimaryButton(btnComplete);
+
+            btnNoShow.Size = new Size(200, 44);
+            btnNoShow.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            RestaurantUiTheme.StyleDangerButton(btnNoShow);
+            btnComplete.BringToFront();
+            btnNoShow.BringToFront();
+            LayoutBookingTab(tabPage1, dgvPending, btnConfirm, btnReject);
+            LayoutBookingTab(tabPage2, dgvConfirmed, btnComplete, btnNoShow);
+
+            Controls.Add(title);
+            Controls.Add(subtitle);
+            title.BringToFront();
+            subtitle.BringToFront();
+            btnRefresh.BringToFront();
+        }
+
+        private static void LayoutBookingTab(TabPage page, DataGridView grid, Button primaryButton, Button dangerButton)
+        {
+            const int margin = 18;
+            const int actionWidth = 200;
+            const int gap = 24;
+            var actionLeft = Math.Max(margin, page.ClientSize.Width - actionWidth - margin);
+            var gridWidth = Math.Max(360, actionLeft - gap - margin);
+
+            grid.Location = new Point(margin, 22);
+            grid.Size = new Size(gridWidth, Math.Max(260, page.ClientSize.Height - 44));
+
+            primaryButton.Location = new Point(actionLeft, 32);
+            dangerButton.Location = new Point(actionLeft, 88);
+            primaryButton.BringToFront();
+            dangerButton.BringToFront();
         }
 
         protected override async void OnLoad(EventArgs e)
@@ -61,12 +141,21 @@ namespace FoodHubRestaurantUI
                     // ซ่อนคอลัมน์ ID ทั้งสองตาราง (เก็บไว้ใช้ตอนกดปุ่ม แต่ไม่ต้องโชว์ให้รก)
                     if (dgvPending.Columns.Contains("ID")) dgvPending.Columns["ID"].Visible = false;
                     if (dgvConfirmed.Columns.Contains("ID")) dgvConfirmed.Columns["ID"].Visible = false;
+                    SetBookingGridWeights(dgvPending);
+                    SetBookingGridWeights(dgvConfirmed);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ดึงข้อมูลคิวสำเร็จ: " + ex.Message);
             }
+        }
+
+        private static void SetBookingGridWeights(DataGridView grid)
+        {
+            if (grid.Columns.Contains("ชื่อลูกค้า")) grid.Columns["ชื่อลูกค้า"].FillWeight = 150;
+            if (grid.Columns.Contains("เวลา")) grid.Columns["เวลา"].FillWeight = 120;
+            if (grid.Columns.Contains("จำนวน")) grid.Columns["จำนวน"].FillWeight = 70;
         }
 
         // ฟังก์ชันช่วยยิง API อัปเดตสถานะ (ใช้ร่วมกันทุกปุ่ม)

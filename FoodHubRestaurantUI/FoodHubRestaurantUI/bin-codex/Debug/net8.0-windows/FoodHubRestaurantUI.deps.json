@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "FoodHubRestaurantUI/1.0.0": {
+        "runtime": {
+          "FoodHubRestaurantUI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FoodHubRestaurantUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
