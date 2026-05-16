@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="9Ij3tKJ_WGeBCkYuhWrF">
-    <mxGraphModel dx="981" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="858" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -58,44 +58,31 @@
         <mxCell id="hp-9e1z2iJPcDMsYFr87-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Pending" vertex="1">
           <mxGeometry height="40" width="80" x="190" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="hp-9e1z2iJPcDMsYFr87-15" edge="1" parent="1" source="hp-9e1z2iJPcDMsYFr87-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="hp-9e1z2iJPcDMsYFr87-18">
+        <mxCell id="hp-9e1z2iJPcDMsYFr87-15" edge="1" parent="1" source="hp-9e1z2iJPcDMsYFr87-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="hp-9e1z2iJPcDMsYFr87-18">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="440" y="120" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-16" connectable="0" parent="hp-9e1z2iJPcDMsYFr87-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Checked-in" vertex="1">
           <mxGeometry relative="1" x="-0.2674" as="geometry">
-            <mxPoint x="-6" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="hp-9e1z2iJPcDMsYFr87-19" edge="1" parent="1" source="hp-9e1z2iJPcDMsYFr87-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="hp-9e1z2iJPcDMsYFr87-14">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="370" y="130" />
-              <mxPoint x="370" y="190" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="hp-9e1z2iJPcDMsYFr87-22" connectable="0" parent="hp-9e1z2iJPcDMsYFr87-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ยกเลิกกระชั้นชิด &amp;lt; 2 ชม." vertex="1">
-          <mxGeometry relative="1" x="0.3412" y="2" as="geometry">
-            <mxPoint x="-4" y="2" as="offset" />
+            <mxPoint x="21" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-20" edge="1" parent="1" source="hp-9e1z2iJPcDMsYFr87-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="hp-9e1z2iJPcDMsYFr87-17">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="360" y="140" />
-              <mxPoint x="360" y="240" />
+              <mxPoint x="360" y="170" />
+              <mxPoint x="360" y="210" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-21" connectable="0" parent="hp-9e1z2iJPcDMsYFr87-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ไม่มาตามเวลาจอง" vertex="1">
           <mxGeometry relative="1" x="0.255" y="-2" as="geometry">
-            <mxPoint x="8" y="-2" as="offset" />
+            <mxPoint x="-3" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Confirmed" vertex="1">
-          <mxGeometry height="40" width="80" x="270" y="110" as="geometry" />
+          <mxGeometry height="40" width="80" x="270" y="140" as="geometry" />
         </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cancelled" vertex="1">
           <mxGeometry height="40" width="80" x="510" y="270" as="geometry" />
@@ -103,14 +90,11 @@
         <mxCell id="hp-9e1z2iJPcDMsYFr87-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Rejected" vertex="1">
           <mxGeometry height="40" width="80" x="510" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="hp-9e1z2iJPcDMsYFr87-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="LateCancelled" vertex="1">
-          <mxGeometry height="40" width="90" x="510" y="170" as="geometry" />
-        </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="NoShow" vertex="1">
-          <mxGeometry height="40" width="80" x="510" y="220" as="geometry" />
+          <mxGeometry height="40" width="80" x="510" y="190" as="geometry" />
         </mxCell>
         <mxCell id="hp-9e1z2iJPcDMsYFr87-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Completed" vertex="1">
-          <mxGeometry height="40" width="80" x="510" y="120" as="geometry" />
+          <mxGeometry height="40" width="80" x="510" y="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
