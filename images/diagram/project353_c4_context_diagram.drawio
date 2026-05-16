@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="m9KTjOquTWpnd3O4BUvA">
+    <mxGraphModel dx="763" dy="416" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q24iO9RFOerwecxYPSDB-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="300" width="490" x="130" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-12" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="90" width="120" x="150" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-10" parent="q24iO9RFOerwecxYPSDB-12" style="rounded=1;whiteSpace=wrap;html=1;arcSize=35;strokeColor=#7EA6E0;" value="&lt;div&gt;&lt;font&gt;&lt;b&gt;Client&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;[Person]&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-11" parent="q24iO9RFOerwecxYPSDB-12" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#7EA6E0;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-13" edge="1" parent="1" source="q24iO9RFOerwecxYPSDB-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" target="q24iO9RFOerwecxYPSDB-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-15" connectable="0" parent="q24iO9RFOerwecxYPSDB-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Views promotion,&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Restaurant reviews,&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;and bookings&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.4587" y="1" as="geometry">
+            <mxPoint x="31" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dLy5_T7z2jU6olRd6H_d-1" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="80" width="160" x="410" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-14" parent="dLy5_T7z2jU6olRd6H_d-1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#7EA6E0;" value="" vertex="1">
+          <mxGeometry height="80" width="160" as="geometry" />
+        </mxCell>
+        <mxCell id="q24iO9RFOerwecxYPSDB-9" parent="dLy5_T7z2jU6olRd6H_d-1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#7EA6E0;" value="&lt;b&gt;&lt;font&gt;Food Hub System&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;[Software System]&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="dLy5_T7z2jU6olRd6H_d-3" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="90" width="120" x="430" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="dLy5_T7z2jU6olRd6H_d-4" parent="dLy5_T7z2jU6olRd6H_d-3" style="rounded=1;whiteSpace=wrap;html=1;arcSize=35;strokeColor=#7EA6E0;" value="&lt;div&gt;&lt;b&gt;Restaurant&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;[Person]&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dLy5_T7z2jU6olRd6H_d-5" parent="dLy5_T7z2jU6olRd6H_d-3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#7EA6E0;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dLy5_T7z2jU6olRd6H_d-6" edge="1" parent="1" source="dLy5_T7z2jU6olRd6H_d-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" target="q24iO9RFOerwecxYPSDB-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dLy5_T7z2jU6olRd6H_d-7" connectable="0" parent="dLy5_T7z2jU6olRd6H_d-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Manages bookings, updates promotions,&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;and views reviews&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1005" y="2" as="geometry">
+            <mxPoint x="-2" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

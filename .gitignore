@@ -1,0 +1,15 @@
+# โฟลเดอร์ขยะจากการ Build
+[Bb]in/
+[Oo]bj/
+
+# โฟลเดอร์ตั้งค่าส่วนตัวของ Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ไฟล์ชั่วคราวอื่นๆ
+*.log
+*.cache
+*.tmp
