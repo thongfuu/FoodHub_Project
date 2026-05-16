@@ -1,9 +1,14 @@
 # Food Hub Project
 
-## โครงสร้างโปรเจกต์
-- `FoodHub/` : Backend Web API (ASP.NET Core & Entity Framework)
-- `FoodHubCustomerUI/` : แอปพลิเคชันสำหรับลูกค้าใช้ค้นหาร้านและจองโต๊ะ
-- `FoodHubRestaurantUI/` : แอปพลิเคชันสำหรับร้านอาหารใช้จัดการคิวและโปรโมชั่น
+## โครงสร้างโปรเจกต์ 
+```
+FoodHub_Project/
+ ├── FoodHub/               (ฝั่ง Server API)
+ ├── FoodHubCustomerUI/     (แอปฝั่งลูกค้า)
+ ├── FoodHubRestaurantUI/   (แอปฝั่งร้านอาหาร)
+ ├── images/
+ └── .gitignore
+```
 
 ---
 
