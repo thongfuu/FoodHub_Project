@@ -124,6 +124,7 @@ INSERT INTO "Customers" ("Name", "Email", "Phone", "LateCancelCount") VALUES
 ('เอกภพ อุ่นไปไหน', 'brooklin@email.com', '0898765432', 0),
 ('วุฒิกร คิดไม่ออก', 'wuthikorn@email.com', '0898552134', 0),
 ('ชนาธิป ติ้ปหน่อยพี่', 'chanatip@email.com', '0915276542', 1),
+('ทินภัทร ซัดหน้าคุณ', 'tinnaphat@email.com', '0871276542', 0),
 ('คุณานนต์ คนกันเอง', 'kunanonny@email.com', '0865554433', 0);
 
 INSERT INTO "Restaurants" ("Name", "OwnerName", "Email", "Phone", "Address", "Category", "OpenHours", "AvgRating", "MaxCapacity") VALUES
