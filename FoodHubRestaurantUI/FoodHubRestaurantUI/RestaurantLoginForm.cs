@@ -81,5 +81,10 @@ namespace FoodHubRestaurantUI
                 this.Hide();
             }
         }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            Application.Exit(); // สั่งฆ่าทุกหน้าต่างที่ซ่อนอยู่ให้ตายสนิท
+        }
     }
 }

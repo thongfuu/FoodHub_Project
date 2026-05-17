@@ -12,6 +12,8 @@ namespace FoodHubRestaurantUI
 {
     public partial class RestaurantDashboardForm : Form
     {
+        private bool isLoggingOut = false;
+
         public RestaurantDashboardForm()
         {
             InitializeComponent();
@@ -232,12 +234,36 @@ namespace FoodHubRestaurantUI
             var promoForm = new PromotionManagementForm();
             promoForm.ShowDialog();
         }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("คุณต้องการออกจากระบบใช่หรือไม่?", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                isLoggingOut = true;
+
+                // 1. เคลียร์ข้อมูลร้าน
+                Program.LoggedInRestaurantId = 0;
+                Program.LoggedInRestaurantName = "";
+
+                // 2. เปิดหน้า Login ร้านอาหารขึ้นมาใหม่
+                var loginForm = new RestaurantLoginForm();
+                loginForm.Show();
+
+                // 3. ปิดหน้า Dashboard ทิ้ง
+                this.Close();
+            }
+        }
 
         // ปิดโปรแกรมทั้งหมดเมื่อปิดหน้าต่างนี้
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
-            Application.Exit();
+
+            if (!isLoggingOut)
+            {
+                Application.Exit();
+            }
         }
     }
 }

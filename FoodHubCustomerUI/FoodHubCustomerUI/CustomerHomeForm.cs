@@ -15,6 +15,7 @@ namespace FoodHubCustomerUI
     public partial class CustomerHomeForm : Form
     {
         private List<RestaurantDTO> allRestaurants = new List<RestaurantDTO>();
+        private bool isLoggingOut = false;
 
         public CustomerHomeForm()
         {
@@ -113,7 +114,27 @@ namespace FoodHubCustomerUI
             var myBookingsForm = new MyBookingsForm();
             myBookingsForm.ShowDialog(); // เปิดหน้าประวัติการจองขึ้นมาทับ
         }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("คุณต้องการออกจากระบบใช่หรือไม่?", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (confirm == DialogResult.Yes)
+            {
+                isLoggingOut = true;
+
+                // 1. เคลียร์ข้อมูลลูกค้าที่เคยล็อกอินค้างไว้ใน Program.cs
+                Program.LoggedInCustomerId = 0;
+                Program.LoggedInCustomerName = "";
+                Program.ClaimedCoupons.Clear();
+
+                // 2. เปิดหน้า Login ใหม่ขึ้นมา
+                var loginForm = new CustomerLoginForm();
+                loginForm.Show();
+
+                // 3. ปิดหน้า Home ทิ้งไป
+                this.Close();
+            }
+        }
         private void menuHome_Click(object sender, EventArgs e)
         {
             LoadRestaurants();
@@ -123,7 +144,11 @@ namespace FoodHubCustomerUI
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
-            Application.Exit();
+
+            if (!isLoggingOut)
+            {
+                Application.Exit();
+            }
         }
     }
 }

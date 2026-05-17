@@ -41,6 +41,7 @@
             btnComplete = new Button();
             dgvConfirmed = new DataGridView();
             btnRefresh = new Button();
+            btnLogout = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -52,7 +53,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuDashboard, menuPromotions });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuDashboard, menuPromotions, btnLogout });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -180,6 +181,13 @@
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(101, 24);
+            btnLogout.Text = "ออกจากระบบ";
+            btnLogout.Click += btnLogout_Click;
+            // 
             // RestaurantDashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -217,5 +225,6 @@
         private DataGridView dgvConfirmed;
         private Button btnComplete;
         private Button btnNoShow;
+        private ToolStripMenuItem btnLogout;
     }
 }

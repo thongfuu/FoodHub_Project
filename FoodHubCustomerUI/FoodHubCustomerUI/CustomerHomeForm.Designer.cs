@@ -34,6 +34,7 @@
             การจองของฉนToolStripMenuItem = new ToolStripMenuItem();
             txtSearch = new TextBox();
             btnSearch = new Button();
+            btnLogout = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvRestaurants).BeginInit();
             menuMyBooking.SuspendLayout();
             SuspendLayout();
@@ -52,7 +53,7 @@
             // menuMyBooking
             // 
             menuMyBooking.ImageScalingSize = new Size(20, 20);
-            menuMyBooking.Items.AddRange(new ToolStripItem[] { หนาแรกToolStripMenuItem, การจองของฉนToolStripMenuItem });
+            menuMyBooking.Items.AddRange(new ToolStripItem[] { หนาแรกToolStripMenuItem, การจองของฉนToolStripMenuItem, btnLogout });
             menuMyBooking.Location = new Point(0, 0);
             menuMyBooking.Name = "menuMyBooking";
             menuMyBooking.Size = new Size(800, 28);
@@ -90,6 +91,13 @@
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(101, 24);
+            btnLogout.Text = "ออกจากระบบ";
+            btnLogout.Click += btnLogout_Click;
+            // 
             // CustomerHomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -117,5 +125,6 @@
         private ToolStripMenuItem การจองของฉนToolStripMenuItem;
         private TextBox txtSearch;
         private Button btnSearch;
+        private ToolStripMenuItem btnLogout;
     }
 }

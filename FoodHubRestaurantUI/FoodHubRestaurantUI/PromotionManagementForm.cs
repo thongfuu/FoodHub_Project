@@ -169,8 +169,8 @@ namespace FoodHubRestaurantUI
                 }
                 else
                 {
-                    string error = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"สร้างไม่สำเร็จ: {error}");
+                    // เปลี่ยนมาเขียนดักด้วยข้อความของเราเอง เพื่อกันไม่ให้หน้าจอเด้งตัวอักษรประหลาดครับ
+                    MessageBox.Show("เกิดข้อผิดพลาด ไม่สามารถสร้างโปรโมชั่นได้ในขณะนี้", "สร้างไม่สำเร็จ");
                 }
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
