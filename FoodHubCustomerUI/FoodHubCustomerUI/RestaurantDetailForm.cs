@@ -302,8 +302,7 @@ namespace FoodHubCustomerUI
                 }
                 else
                 {
-                    string errorReason = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"จองไม่สำเร็จ (Status: {response.StatusCode})\nสาเหตุ: {errorReason}", "เกิดข้อผิดพลาด");
+                    MessageBox.Show("ไม่สามารถจองโต๊ะได้ในช่วงเวลานี้\n(สาเหตุ: โต๊ะอาจจะเต็ม หรือ อยู่นอกเวลาเปิด-ปิดของร้าน)", "เกิดข้อผิดพลาดในการจอง");
                 }
             }
             catch (Exception ex)
