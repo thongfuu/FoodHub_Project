@@ -1,6 +1,9 @@
 ﻿using FoodHubApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FoodHubApi.Controllers
 {
@@ -15,38 +18,38 @@ namespace FoodHubApi.Controllers
             _context = context;
         }
 
-        // POST: api/Reviews (ลูกค้าส่งรีวิว)
         [HttpPost]
-        public async Task<IActionResult> CreateReview([FromBody] Review review)
+        public Review CreateReview([FromBody] Review review)
         {
             review.CreatedAt = DateTime.UtcNow;
             _context.Reviews.Add(review);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges(); // เซฟครั้งที่ 1
 
-            // อัปเดตคะแนนเฉลี่ยให้ร้านอาหาร (Logic คำนวณ AvgRating)
-            var allReviews = await _context.Reviews.Where(r => r.RestaurantId == review.RestaurantId).ToListAsync();
-            double avg = allReviews.Average(r => r.Rating);
-
-            var restaurant = await _context.Restaurants.FindAsync(review.RestaurantId);
-            if (restaurant != null)
+            // อัปเดตคะแนนเฉลี่ยให้ร้านอาหาร
+            var allReviews = _context.Reviews.Where(r => r.RestaurantId == review.RestaurantId).ToList();
+            if (allReviews.Any())
             {
-                restaurant.AvgRating = Math.Round(avg, 1);
-                await _context.SaveChangesAsync();
+                double avg = allReviews.Average(r => r.Rating);
+                var restaurant = _context.Restaurants.Find(review.RestaurantId);
+
+                if (restaurant != null)
+                {
+                    restaurant.AvgRating = Math.Round(avg, 1);
+                    _context.SaveChanges(); // เซฟครั้งที่ 2
+                }
             }
 
-            return Ok(new { Message = "ขอบคุณสำหรับรีวิว!" });
+            return review;
         }
 
-        // GET: api/Reviews/restaurant/1 (ดึงรีวิวไปโชว์ในหน้ารายละเอียดร้าน)
         [HttpGet("restaurant/{restaurantId}")]
-        public async Task<IActionResult> GetReviewsByRestaurant(int restaurantId)
+        public List<Review> GetReviewsByRestaurant(int restaurantId)
         {
-            var reviews = await _context.Reviews
-                .Include(r => r.Customer) // ดึงชื่อคนรีวิวมาด้วย
+            return _context.Reviews
+                .Include(r => r.Customer)
                 .Where(r => r.RestaurantId == restaurantId)
                 .OrderByDescending(r => r.CreatedAt)
-                .ToListAsync();
-            return Ok(reviews);
+                .ToList(); // ตัด Async ออก
         }
     }
 }

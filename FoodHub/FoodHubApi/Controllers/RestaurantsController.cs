@@ -1,6 +1,8 @@
 ﻿using FoodHubApi.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FoodHubApi.Controllers
 {
@@ -15,21 +17,19 @@ namespace FoodHubApi.Controllers
             _context = context;
         }
 
-        // GET: api/Restaurants
         [HttpGet]
-        public async Task<IActionResult> GetAllRestaurants()
+        public List<Restaurant> GetAllRestaurants()
         {
-            var restaurants = await _context.Restaurants.ToListAsync();
-            return Ok(restaurants);
+            return _context.Restaurants.ToList(); // ตัด Async ออก
         }
 
-        // GET: api/Restaurants/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetRestaurantById(int id)
+        public Restaurant GetRestaurantById(int id)
         {
-            var restaurant = await _context.Restaurants.FindAsync(id);
-            if (restaurant == null) return NotFound("ไม่พบร้านอาหารนี้");
-            return Ok(restaurant);
+            var restaurant = _context.Restaurants.Find(id); // ตัด Async ออก
+            if (restaurant == null) throw new Exception("ไม่พบร้านอาหารนี้"); // ใช้ throw แทน NotFound
+
+            return restaurant;
         }
     }
 }

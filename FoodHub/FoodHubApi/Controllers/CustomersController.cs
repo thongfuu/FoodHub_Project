@@ -1,7 +1,7 @@
 ﻿using FoodHubApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FoodHubApi.Controllers
 {
@@ -16,12 +16,10 @@ namespace FoodHubApi.Controllers
             _context = context;
         }
 
-        // GET: api/Customers
         [HttpGet]
-        public async Task<IActionResult> GetCustomers()
+        public List<Customer> GetCustomers()
         {
-            var customers = await _context.Customers.ToListAsync();
-            return Ok(customers);
+            return _context.Customers.ToList(); // ตัด Async ออก
         }
     }
 }
