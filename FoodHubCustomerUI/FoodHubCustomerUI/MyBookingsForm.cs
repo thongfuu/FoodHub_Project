@@ -10,7 +10,40 @@ namespace FoodHubCustomerUI
 {
     public partial class MyBookingsForm : Form
     {
-        public MyBookingsForm() { InitializeComponent(); }
+        public MyBookingsForm()
+        {
+            InitializeComponent();
+            ApplyModernLayout();
+        }
+
+        private void ApplyModernLayout()
+        {
+            CustomerUiTheme.ApplyForm(this, new Size(1000, 640), "FoodHub - การจองของฉัน");
+
+            label1.Text = "การจองของฉัน";
+            label1.Location = new Point(32, 28);
+            label1.Size = new Size(360, 36);
+            label1.AutoSize = false;
+            CustomerUiTheme.StyleLabel(label1, section: true);
+
+            var subtitle = CustomerUiTheme.CreateSubtitle("ติดตามสถานะ ยกเลิกการจอง หรือเขียนรีวิวหลังใช้บริการ", new Point(34, 64), 720);
+            Controls.Add(subtitle);
+
+            dgvBookings.Location = new Point(32, 112);
+            dgvBookings.Size = new Size(936, 410);
+            dgvBookings.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CustomerUiTheme.StyleGrid(dgvBookings);
+
+            btnCancel.Location = new Point(32, 548);
+            btnCancel.Size = new Size(220, 44);
+            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CustomerUiTheme.StyleDangerButton(btnCancel);
+
+            btnReview.Location = new Point(268, 548);
+            btnReview.Size = new Size(220, 44);
+            btnReview.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CustomerUiTheme.StylePrimaryButton(btnReview);
+        }
 
         protected override async void OnLoad(EventArgs e)
         {
@@ -39,6 +72,21 @@ namespace FoodHubCustomerUI
                         สถานะ = b.Status,
                         RestaurantId = b.RestaurantId // ซ่อนไว้ใช้ตอนรีวิว
                     }).ToList();
+
+                    if (dgvBookings.Columns.Contains("RestaurantId"))
+                    {
+                        dgvBookings.Columns["RestaurantId"].Visible = false;
+                    }
+
+                    if (dgvBookings.Columns.Contains("ID"))
+                    {
+                        dgvBookings.Columns["ID"].FillWeight = 45;
+                    }
+
+                    if (dgvBookings.Columns.Contains("ร้านอาหาร"))
+                    {
+                        dgvBookings.Columns["ร้านอาหาร"].FillWeight = 150;
+                    }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -106,23 +154,23 @@ namespace FoodHubCustomerUI
                 if (status == "Cancelled" || status == "LateCancelled")
                 {
                     e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.Red;
+                    e.CellStyle.BackColor = CustomerUiTheme.Danger;
 
                     // ทำให้ทั้งบรรทัดกลายเป็นสีเทาจางๆ (ตัวเลือกเสริม)
-                    dgvBookings.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
+                    dgvBookings.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(238, 239, 236);
                 }
                 else if (status == "Confirmed")
                 {
-                    e.CellStyle.ForeColor = Color.Green;
+                    e.CellStyle.ForeColor = CustomerUiTheme.Primary;
                     e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold); // ทำตัวหนา
                 }
                 else if (status == "Pending")
                 {
-                    e.CellStyle.ForeColor = Color.DarkOrange;
+                    e.CellStyle.ForeColor = CustomerUiTheme.Accent;
                 }
                 else if (status == "Completed")
                 {
-                    e.CellStyle.ForeColor = Color.Blue;
+                    e.CellStyle.ForeColor = Color.FromArgb(66, 96, 150);
                 }
             }
         }
